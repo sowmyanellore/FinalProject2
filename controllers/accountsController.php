@@ -3,25 +3,38 @@
 class accountsController extends http\controller
 {
 
+    
     public static function show()
     {
         $record = accounts::findOne($_REQUEST['id']);
         self::getTemplate('show_account', $record);
     }
 
-  
+    
 
     public static function all()
     {
-
-        $records = accounts::findAll();
+		
+		session_start();
+		$userID = @$_SESSION["userID"];
+		if(!$userID) {
+			header("Location: index.php?page=homepage&action=show");
+		}
+		
+        $records = array(accounts::findOne($userID)); 
         self::getTemplate('all_accounts', $records);
 
     }
     
     public static function register()
     {
-       
+		
+		session_start();
+		$userID = @$_SESSION["userID"];
+		if($userID) {
+			header("Location: index.php?page=accounts&action=all");
+		}
+		
         self::getTemplate('register');
     }
 
@@ -42,9 +55,12 @@ class accountsController extends http\controller
             $user->gender = $_POST['gender'];
             $user->password = $user->setPassword($_POST['password']);
             $user->save();
+
+            
             header("Location: index.php?page=accounts&action=all");
 
         } else {
+            
             $error = 'already registered';
             self::getTemplate('error', $error);
 
@@ -81,35 +97,32 @@ class accountsController extends http\controller
         header("Location: index.php?page=accounts&action=all");
     }
 
-    
     public static function login()
     {
-
+        
         $user = accounts::findUserbyEmail($_REQUEST['email']);
-
-
-        if ($user == FALSE) {
+        if($user == FALSE) {
             echo 'user not found';
         } else {
-
             if($user->checkPassword($_POST['password']) == TRUE) {
-
                 echo 'login';
-
                 session_start();
                 $_SESSION["userID"] = $user->id;
-                
-                print_r($_SESSION);
-                
+
+                //forward the user to the show all todos page
+                header("Location: index.php?page=accounts&action=all");
             } else {
                 echo 'password does not match';
             }
-
         }
+    }
+	
 
-        
-
-
+    public static function logout()
+    {
+        session_start();
+        unset($_SESSION['userID']);
+		header("Location: index.php?page=homepage&action=show");
     }
 
 }
