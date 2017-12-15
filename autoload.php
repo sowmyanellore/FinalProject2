@@ -1,6 +1,12 @@
 <?php
 class Manage
 {
+	 public static function config()
+    {
+		$data['site_name'] = 'sowmya';
+		return $data;
+    }
+	
     public static function core($class)
     {
 
