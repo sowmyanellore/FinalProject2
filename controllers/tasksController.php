@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 class tasksController extends http\controller
 {
@@ -44,17 +45,18 @@ class tasksController extends http\controller
     }
 
     //this would be for the post for sending the task edit form
-    public static function store()
+     public static function store()
     {
-
-
         $record = todos::findOne($_REQUEST['id']);
+		$record->title = $_REQUEST['title'];
         $record->body = $_REQUEST['body'];
+		$record->isdone = ($_REQUEST['isdone']?$_REQUEST['isdone']:'no');
+		$record->ownerid = $_SESSION['userID'];
+		$record->createddate = date('Y-m-d');
+		$record->updateddate = date('Y-m-d');
         $record->save();
-        print_r($_POST);
-
+        header("Location: index.php?page=tasks&action=edit&id=".$_REQUEST['id']);
     }
-
     public static function save() {
         session_start();
         $task = new todo();
