@@ -15,14 +15,12 @@
 <body>
 
    <h1 class="header">Welcome to my application</h1>
-   <p class="links"><a href="index.php?page=accounts&action=all">Show All Accounts</a></p>
-   <p class="links"><a href="index.php?page=tasks&action=all">Show All Tasks</a></p>
-
+   
    <form action="index.php?page=accounts&action=login" method="POST">
 
        <div class="input">
            <label><b>Username</b></label>
-           <input type="text" placeholder="Enter Username" name="username" required>
+           <input type="text" placeholder="Enter Username" name="email" required>
        
            <label><b>Password</b></label>
            <input type="password" placeholder="Enter Password" name="password" required>
@@ -32,7 +30,7 @@
 
    </form>
 
-   <p class="links"> Dont have account <a href="index.php?page=accounts&action=register">Register</a></p>
+   <p class="links"> Dont have account? <a href="index.php?page=accounts&action=register">Register</a></p>
 
 </body>
 </html>
