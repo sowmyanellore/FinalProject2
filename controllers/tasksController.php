@@ -58,11 +58,13 @@ class tasksController extends http\controller
         header("Location: index.php?page=tasks&action=edit&id=".$_REQUEST['id']);
     }
     public static function save() {
-        session_start();
+		$date = date('Y-m-d');
         $task = new todo();
-
+		$task->title = $_REQUEST['title'];
         $task->body = $_POST['body'];
+		$task->isdone = ($_REQUEST['isdone']?$_REQUEST['isdone']:'no');
         $task->ownerid = $_SESSION['userID'];
+		$task->createddate = $date;
         $task->save();
 
     }
