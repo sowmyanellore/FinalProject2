@@ -66,6 +66,7 @@ class tasksController extends http\controller
         $task->ownerid = $_SESSION['userID'];
 		$task->createddate = $date;
         $task->save();
+        header("Location: index.php?page=tasks&action=all");
 
     }
 
