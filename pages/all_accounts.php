@@ -4,11 +4,11 @@
 <head>
     <meta charset="utf-8">
 
-    <title>The HTML5 Herald</title>
-    <meta name="description" content="The HTML5 Herald">
+    <title>MY FINALPROJECT</title>
+    <meta name="description" content="MY FINALPROJECT">
     <meta name="author" content="SitePoint">
 
-    <link rel="stylesheet" href="css/styles.css?v=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
 
     <!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
@@ -16,17 +16,37 @@
 </head>
 
 <body>
-<h1>All Accounts</h1>
 
-<h1> HI</h1>
+<ul>
+<li><a href="index.php?page=tasks&action=all">My Tasks</a>
+</li>
+<li>
+<a href="index.php?page=accounts&action=logout">Logout</a>
+</li>
+
+
+</ul>
+
+<h2 class="center">My Account</h2>
+<h2 style="padding-bottom: 50px;"></h2>
 
 <?php
-//this is how you print something
-
-print utility\htmlTable::genarateTableFromMultiArray($data);
-
-
+$userID = $_SESSION["userID"];
+$user_data = accounts::findUserbyId($userID);
 ?>
+
+<h3>Hii <?=$user_data->fname?>!!!</h3>
+								
+
+
+<p class="centertable">
+<?php
+//this is how you print something
+print utility\htmlTable::genarateTableFromMultiArray($data);
+?>
+</p>
+
+
 
 
 <script src="js/scripts.js"></script>
