@@ -11,7 +11,7 @@ abstract class collection
         $model = new static::$modelName;
         return $model;
     }
-
+    //this is to get all the data in dB 
     static public function findAll()
     {
         $tableName = get_called_class();
@@ -45,7 +45,7 @@ abstract class collection
 
         return $recordsSet;
     }
-
+     // this to to get data from dB using id
     static public function findOne($id)
     {
         $tableName = get_called_class();

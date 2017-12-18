@@ -5,7 +5,7 @@ use http\controller;
 
 abstract class model
 {
-
+    //this is to save with validation
     public function save()
     {
 
@@ -46,7 +46,7 @@ abstract class model
         }
 
 
-
+    //this is to insert data into the dBtable 
     private function insert()
     {
 
@@ -59,12 +59,12 @@ abstract class model
         $sql = 'INSERT INTO ' . $tableName . ' (' . $columnString . ') VALUES (' . $valueString . ')';
         return $sql;
     }
-
+    //validate function
     public function validate() {
 
         return TRUE;
     }
-
+    //Update a table in dB
     private function update()
     {
 
@@ -84,7 +84,8 @@ abstract class model
         return $sql;
 
     }
-
+    
+    //Delete a table from dB  
     public function delete()
     {
         $db = dbConn::getConnection();
