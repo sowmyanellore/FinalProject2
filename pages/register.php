@@ -1,35 +1,34 @@
 <!doctype html>
-
 <html lang="en">
+
 <head>
+
     <meta charset="utf-8">
-
-    <title>The HTML5 Herald</title>
-    <meta name="description" content="The HTML5 Herald">
+    <title>MY PROJECT</title>
+    <meta name="description" content="MY PROJECT">
     <meta name="author" content="SitePoint">
+    <link rel="stylesheet" type="text/css" href="style.css">
 
-    <link rel="stylesheet" href="css/styles.css?v=1.0">
-
-    <!--[if lt IE 9]>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
-    <![endif]-->
 </head>
 
 <body>
 
 
 <form action="index.php?page=accounts&action=register" method="post">
-    First name: <input type="text" name="fname"><br>
-    Last name: <input type="text" name="lname"><br>
-    Email: <input type="text" name="email"><br>
-    Phone: <input type="text" name="phone"><br>
-    Birthday: <input type="text" name="birthday"><br>
-    Gender: <input type="text" name="gender"><br>
-    Password: <input type="password" name="password"><br>
+    <div class="input">
+    <label> First name:</label> <input type="text" name="fname" placeholder="first name"required><br>
+    <label>Last name: </label> <input type="text" name="lname" placeholder="lastname" required><br>
+    <label>Email|Username: </label> <input type="text" name="email"  placeholder="username"required><br>
+     <label>Password:</label> <input type="password" name="password"><br>
+    <label>Phone: </label> <input type="text" name="phone" placeholder="phone no" required><br>
+    <label>Birthday:</label> <input type="text" name="birthday" placeholder="yyyy-mm-dd" required><br>
+    
+     <label>Gender(M/F):</label> <input type="text" name="gender" ><br> 
+   
     <input type="submit" value="Submit form">
+    </div>
 </form>
 
 
-<script src="js/scripts.js"></script>
 </body>
 </html>

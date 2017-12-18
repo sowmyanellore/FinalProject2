@@ -4,8 +4,8 @@
 <head>
     <meta charset="utf-8">
 
-    <title>The HTML5 Herald</title>
-    <meta name="description" content="The HTML5 Herald">
+    <title>MY FINALPROJECT</title>
+    <meta name="description" content="MY FINALPROJECT">
     <meta name="author" content="SitePoint">
 
     <link rel="stylesheet" type="text/css" href="style.css">

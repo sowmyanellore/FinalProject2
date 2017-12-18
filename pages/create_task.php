@@ -8,7 +8,8 @@
     <meta name="description" content="MY FINALPROJECT">
     <meta name="author" content="SitePoint">
 
-    <link rel="stylesheet" href="css/styles.css?v=1.0">
+     <link rel="stylesheet" type="text/css" href="style.css">
+
 
     <!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
@@ -16,22 +17,16 @@
 </head>
 
 <body>
-<h1>
-<?php
-//this how to print some data;
-$config = Manage::config();
-echo $config['site_name'];
-?></h1>
-<h1>Add Todos</h1>
+
 
 <?php
 $userID = $_SESSION["userID"];
 $user_data = accounts::findUserbyId($userID);
 ?>
 
-<h1>Hi <?=$user_data->fname?></h1>
+
 								
-<ul>
+<ul >
 <li><a href="index.php?page=accounts&action=all">My Account</a>
 </li>
 <li><a href="index.php?page=tasks&action=all">All Todos</a>
@@ -41,13 +36,23 @@ $user_data = accounts::findUserbyId($userID);
 </li>
 </ul>
 
+
 <form action="index.php?page=tasks&action=save" method="post">
-	Title: <input type="text" name="title" id="title" required><br>
-	Task: <textarea name="body" id="body" required></textarea><br>
+<div class="input">
+<h1 class="center">Add Todos</h1>
+<h2 style="padding-bottom: 50px;"></h2>
+	<label>Title:</label> <input type="text" name="title" id="title" required><br>
+	<label>Task: </label><textarea name="body" id="body" required></textarea><br>
+  <label>Difficulty Level: </label><textarea name="difficultylevel" id="difficultylevel" required></textarea><br>
+  <label>Duedate: </label><textarea name="duedate" id="duedate" required></textarea><br>
 	Is Done: <input type="checkbox" name="isdone" id="isdone" value="1"><br>
-    <input type="submit" value="Submit form">
+    <input  type="submit" value="Submit form">
+   
+</div>
 </form>
-<a href="index.php?page=tasks&action=all">Back</a>
+<div style="padding-left: 33.5%;"class="input">
+<button ><a  href="index.php?page=tasks&action=all">Back</a></button>
 <script src="js/scripts.js"></script>
+</div>
 </body>
 </html>
