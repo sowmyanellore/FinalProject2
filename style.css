@@ -73,15 +73,7 @@ form, .links {
     font-size: 30px;
 
     }
-    .centertable {
-    position: absolute;
-    left: 20%;
-    top: 50%;
-    width: 100%;
-    text-align: center;
-    font-size: 30px;
-
-    }
+    .
     .button {
     background-color: #4CAF50;
     border: none;
@@ -95,28 +87,7 @@ form, .links {
     cursor: pointer;
 }
    
-.topnav {
-  overflow: hidden;
-  background-color: #333;
-}
 
-.topnav a {
-  float: right;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}
-
-.topnav a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-.topnav a.active {
-  background-color: #4CAF50;
-  color: white;
 }
  ul { 
   
@@ -146,14 +117,6 @@ form, .links {
 	}
 
 
-.menu {
-  float:left;
-  width:20%;
-  text-align:center;
+.input input[type="radio"] {
+	background: red; 
 }
-.menu li{
-  background-color:#e5e5e5;
-  padding:8px;
-  margin-top:7px;
-}
-
